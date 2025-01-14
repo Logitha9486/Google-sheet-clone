@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Sheets</title>
+  <link rel="stylesheet" href="style.css">
+  <!--Data Visualisation-->
+  <script src="./assets/chart.js"></script>
+  <script src="./assets/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar" id="navbar">
+      <div class="navbar-left">
+        <img src="./2323516.png" alt="Logo" class="navbar-logo">
+        
+        <h1>Google Sheets</h1>
+        <div class="toolbar">
+          <button onclick="applyStyle('bold')">Bold</button>
+          <button onclick="applyStyle('italic')">Italic</button>
+          <button onclick="applyStyle('underline')">Underline</button>
+          <div>
+            <button onclick="toggleAddRemoveOptions()">Insert</button>
+        </div>
+          <button>Text Color <input type="color" onchange="applyColor(this.value)"></button>
+          
+        
+        
+        
+        <div id="add-remove-options" style="display:none;">
+            <button onclick="addRow()">Add Row</button>
+            <button onclick="addColumn()">Add Column</button>
+            <button onclick="removeRow()">Remove Row</button>
+            <button onclick="removeColumn()">Remove Column</button>
+        </div>
+      
+        
+        
+    
+        </div>
+        
+    </nav>
+  </header>
+
+  <main>
+    <div class="controls">
+      <input id="formulaBar" type="text" placeholder="fx">
+      <button onclick="applyFormula()">Apply formula</button>
+    </div>
+    <div id="spreadsheet-container">
+      <div id="spreadsheet">
+         
+        <!-- Cells dynamically generated -->
+      </div>
+    </div>
+
+    <div id="dataValidationMessage"></div>
+<div id="footer">
+    <div class="save-load">
+      <button id="shareBtn" onclick="shareSpreadsheet()"  >Share</button>
+      <button onclick="saveSpreadsheet()">Save</button>
+      <input type="file" onchange="loadSpreadsheet(event)">
+    </div>
+
+    <div class="bottom-buttons-container">
+      <div class="left-buttons">
+          <button id="addSheetBtn" onclick="addSheet()">Add Sheet</button>
+          
+      </div>
+      <div class="right-buttons">
+          <button onclick="createChart()">Create Chart</button>
+          <canvas id="chartCanvas" height="10" width="10"></canvas>
+      </div>
+  </div>
+  <ul id="sheet-list"></ul>
+
+
+    <div id="testResults"></div>
+  </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

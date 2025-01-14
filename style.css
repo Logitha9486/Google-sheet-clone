@@ -1,0 +1,282 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    padding-right: 485px;
+}
+header {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+}
+ 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     
+     
+}
+/* Styling the toolbar container to align items in a straight line */
+.toolbar {
+    display: flex;
+    justify-content: flex-start;  
+    align-items: center;   
+    flex-wrap: wrap;   
+    margin-top: 10px;
+     
+}
+
+.toolbar button,
+.toolbar input {
+    margin-right: 10px; 
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.toolbar button.active {
+    background-color: #4285f4;
+    color: white;
+    border-color: #005cbf;
+}
+
+.toolbar button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Adjust the buttons for the add/remove options to make them consistent */
+#add-remove-options button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+#add-remove-options button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Ensure input elements are also aligned properly */
+.toolbar input {
+    margin-left: 10px;
+}
+
+
+.toolbar button, .toolbar input {
+    margin-right: 10px;
+
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.toolbar button.active {
+    background-color: #4285f4;
+    color: white;
+    border-color: #005cbf;
+}
+
+.toolbar button:hover {
+    background-color: #e0e0e0;
+}
+
+main {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.controls input {
+    flex: 1;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#spreadsheet-container {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+     
+}
+
+#spreadsheet {
+    display: grid;
+    grid-template-columns: repeat(64, minmax(100px, 1fr));
+    grid-auto-rows: minmax(30px, auto);
+    background-color: #fff;
+}
+
+.cell.header {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.cell {
+    background-color: white;
+    padding: 5px;
+    text-align: left;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    min-height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.cell[contenteditable="true"]:focus {
+    outline: 2px solid #4285f4;
+}
+
+.save-load {
+    position: fixed;
+    bottom: 20px;  
+    left: 265px;    
+    padding: 7px 20px;
+    background-color: #34a853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s; 
+
+}
+ 
+
+#chartCanvas {
+    margin-top: 20px;
+}
+
+#dataValidationMessage {
+    color: red;
+    
+}
+ 
+button:hover {
+    background-color: #ddd;
+}
+/* Fix the position of the Add Sheet button to the bottom */
+#addSheetBtn {
+    position: fixed;
+    bottom: 20px;  
+    left: 20px;    
+    padding: 10px 20px;
+    background-color: #34a853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#addSheetBtn:hover {
+    background-color: #1e7d38;
+}
+
+/* Optional: For styling sheet list and other items */
+#sheet-list {
+    list-style-type: none;
+    padding: 0;
+}
+/* Flex container to align buttons in a straight line at the bottom */
+.bottom-buttons-container {
+    position: fixed;
+    bottom: 20px;
+    width: 18%;
+    display: flex;
+     
+    justify-content: space-between;  
+    padding: 0 20px;   
+}
+
+.left-buttons, .right-buttons {
+    display: flex;
+    gap: 10px; 
+}  
+
+/* Styling for buttons */
+#addSheetBtn, .right-buttons button {
+    padding: 10px 20px;
+    background-color: #34a853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#addSheetBtn:hover, .right-buttons button:hover {
+    background-color: #1e7d38;
+}
+
+/* Optional: For styling sheet list and other items */
+#sheet-list {
+    list-style-type: none;
+    padding: 0;
+}
+/* Styling for the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    color: white;
+}
+
+/* Navbar left section for logo and title */
+.navbar-left {
+    display: flex;
+    align-items: center;   
+}
+
+.navbar-logo {
+    width: 100px;  
+    height: 100px;
+    margin-right: 10px;   
+
+}
+#shareBtn {
+    position: fixed;
+    bottom: 20px;  
+    left: 620px;    
+    padding: 7px 20px;
+    background-color: #34a853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;   
+    height: 35px;
+      
+}
+  
+  #shareBtn:hover {
+    background-color: #1e7d38;  
+  }
+  
