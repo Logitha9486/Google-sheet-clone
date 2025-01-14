@@ -1,94 +1,133 @@
-Web Application Mimicking Google Sheets
-Table of Contents
-Introduction
-Features
-Installation
-Usage
-Technology Stack
-Data Structures and Design
-Challenges Faced
-Future Enhancements
-Introduction
-This project is a web application designed to replicate the user interface and core functionalities of Google Sheets. It includes features like mathematical operations, data quality functions, and basic spreadsheet interactions. The goal was to build a user-friendly, responsive, and functional application for data manipulation and visualization.
+# **Web Application Mimicking Google Sheets**
 
-Features
-Core Features
-Spreadsheet Interface:
+## **Table of Contents**
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Technology Stack](#technology-stack)
+6. [Data Structures and Design](#data-structures-and-design)
+7. [Challenges Faced](#challenges-faced)
+8. [Future Enhancements](#future-enhancements)
 
-Toolbar, formula bar, and cell grid.
-Drag-and-drop functionality for content and formulas.
-Add, delete, and resize rows/columns.
-Cell formatting: bold, italics, font size, and colors.
-Mathematical Functions:
+---
 
-SUM: Add values in a range.
-AVERAGE: Calculate the average.
-MAX: Find the maximum value.
-MIN: Find the minimum value.
-COUNT: Count numerical entries.
-Data Quality Functions:
+## **Introduction**
+This project is a web application designed to replicate the core functionalities of Google Sheets. The application provides features such as data entry, formula-based calculations, charting, and multiple sheet management. It emphasizes user-friendliness, responsiveness, and real-time data manipulation.
 
-TRIM: Removes whitespace.
-UPPER & LOWER: Change text case.
-REMOVE_DUPLICATES: Eliminate duplicate rows.
-FIND_AND_REPLACE: Locate and replace text in a range.
-Bonus Features
-Save and load spreadsheets locally.
-Basic data visualization (e.g., bar charts, pie charts).
-Advanced cell referencing (relative and absolute).
-Installation
-Prerequisites
-Node.js and npm installed.
-Modern web browser.
-Setup
-Clone the repository:
+---
+
+## **Features**
+
+### **Core Features**
+- **Spreadsheet Interface**:
+  - Toolbar with formatting options (bold, italic, underline, text color).
+  - Dynamic grid creation for rows and columns.
+  - Add, delete, and resize rows/columns.
+  - Formula bar for applying mathematical functions.
+
+- **Mathematical Functions**:
+  - `SUM`: Adds values in a range.
+  - `AVERAGE`: Calculates the average.
+  - `MAX`: Finds the maximum value.
+  - `MIN`: Finds the minimum value.
+  - `COUNT`: Counts numeric entries.
+  - `PRODUCT`, `SQRT`, `POWER`, `ROUND`, `ABS`.
+
+- **Data Visualization**:
+  - Generate charts (line, bar, pie) using selected data.
+
+- **Data Management**:
+  - Save and load spreadsheets locally.
+  - Add multiple sheets and toggle between them.
+
+- **Sharing**:
+  - Share the spreadsheet URL using the browser’s native sharing functionality.
+
+---
+
+## **Installation**
+
+### **Prerequisites**
+- Modern web browser (e.g., Chrome, Firefox).
+- Node.js installed for advanced development (optional).
+
+### **Setup**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/google-sheets-clone.git
+   cd google-sheets-clone
+If Node.js is installed, you can set up a local server:
 bash
 Copy code
-git clone <repository-url>  
-cd <project-folder>  
-Install dependencies:
-bash
-Copy code
-npm install  
-Start the development server:
-bash
-Copy code
-npm start  
-Open the application in your browser:
+npx http-server .
+Open the index.html file in your browser or access the local server at:
 arduino
 Copy code
-http://localhost:3000  
+http://localhost:8080
 Usage
+Start the Application:
+
 Open the app in your browser.
-Interact with the spreadsheet:
+The default sheet loads with an editable grid.
+Spreadsheet Features:
+
 Enter data into cells.
-Use the toolbar for formatting.
-Try mathematical and data quality functions in the formula bar (e.g., =SUM(A1:A5)).
-Save or load spreadsheets using the file menu.
+Use the toolbar to format cells (e.g., bold, italic, color).
+Add or remove rows/columns using the toolbar buttons.
+Apply Mathematical Functions:
+
+Use the formula bar to enter formulas (e.g., =SUM(A1:A5)).
+Data Visualization:
+
+Highlight data and click "Create Chart" to generate visualizations.
+Save/Load:
+
+Save your spreadsheet locally as JSON.
+Load a saved JSON file to continue editing.
+Add and Switch Sheets:
+
+Add multiple sheets and toggle between them using the sheet list.
 Technology Stack
 Frontend:
-
-HTML, CSS, JavaScript
-Libraries: Handsontable or Spreadsheet.js
-Charting: Chart.js
-Backend:
-
-Node.js for server logic.
-Optional: Express.js for routing.
-Database:
-
-SQLite (lightweight database for saving data locally).
+HTML: For structure and layout.
+CSS: For styling the application:
+Toolbar, spreadsheet grid, buttons, and navbar.
+JavaScript: For interactivity and logic:
+Dynamic grid creation.
+Mathematical function calculations.
+Chart generation using Chart.js.
 Data Structures and Design
-2D Array: Represents the spreadsheet grid, where each element corresponds to a cell.
-HashMap/Dictionary: Tracks dependencies between cells (for formula calculations).
-Queue: Ensures orderly updates of dependent cells.
-JSON: Used for saving and loading spreadsheets.
+Key Data Structures:
+2D Array:
+Represents the spreadsheet grid where each cell contains data or a formula.
+HashMap:
+Tracks cell dependencies for formula calculations.
+JSON:
+Saves and loads spreadsheet data.
 Challenges Faced
-Ensuring live updates for dependent cells when formulas change.
-Implementing drag-and-drop functionality while maintaining data integrity.
-Handling large datasets efficiently.
+Live Cell Updates:
+
+Ensuring dependent cells update automatically when values/formulas change.
+Solution: Used a HashMap for tracking cell dependencies.
+Drag-and-Drop:
+
+Implementing smooth dragging of content across cells.
+Solution: Used event listeners for precise handling.
+Chart Generation:
+
+Ensuring data visualization reflects selected data.
+Solution: Integrated Chart.js for seamless chart creation.
 Future Enhancements
-Add real-time collaboration features.
-Improve data visualization with advanced charting options.
-Expand formula support (e.g., IF, VLOOKUP).
-Optimize performance for larger spreadsheets.
+Real-Time Collaboration:
+
+Allow multiple users to edit the spreadsheet simultaneously using WebSockets.
+Expanded Charting Options:
+
+Add support for advanced chart types like scatter plots and histograms.
+Enhanced Formula Support:
+
+Include functions like IF, VLOOKUP, and conditional formatting.
+Offline Support:
+
+Enable users to work offline and sync changes later.
